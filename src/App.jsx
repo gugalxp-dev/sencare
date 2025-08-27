@@ -558,7 +558,7 @@ function App() {
                 <CardContent>
                   <form 
                     onSubmit={handleSubmit} 
-                    action="https://formsubmit.co/gustavodev24@gmail.com" 
+                    action="https://formsubmit.co/sencare.homecare@gmail.com" 
                     method="POST"
                     className="space-y-6"
                   >
@@ -607,12 +607,12 @@ function App() {
                         className="w-full bg-input border border-primary/20 focus:border-primary text-lg py-4 px-4 rounded-xl text-foreground"
                       >
                         <option value="">Selecione o serviço desejado</option>
-                        <option value="acompanhamento-domiciliar">Acompanhamento domiciliar</option>
-                        <option value="cuidado-idosos">Cuidado de Idosos</option>
-                        <option value="cuidado-infantil">Cuidado Infantil</option>
-                        <option value="acompanhante-hospitalar">Acompanhante Hospitalar</option>
-                        <option value="curativos">Curativos e Procedimentos</option>
-                        <option value="reabilitacao">Reabilitação</option>
+                        <option value="Acompanhamento Domiciliar">Acompanhamento domiciliar</option>
+                        <option value="Cuidado de Idosos">Cuidado de Idosos</option>
+                        <option value="Cuidado Infantil">Cuidado Infantil</option>
+                        <option value="Acompanhante Hospitalar">Acompanhante Hospitalar</option>
+                        <option value="Curativos e Procedimentos">Curativos e Procedimentos</option>
+                        <option value="Reabilitação">Reabilitação</option>
                         <option value="outros">Outros</option>
                       </select>
                     </div>
