@@ -613,7 +613,7 @@ function App() {
                         <option value="Acompanhante Hospitalar">Acompanhante Hospitalar</option>
                         <option value="Curativos e Procedimentos">Curativos e Procedimentos</option>
                         <option value="Reabilitação">Reabilitação</option>
-                        <option value="outros">Outros</option>
+                        <option value="Outros Serviços">Outros</option>
                       </select>
                     </div>
                     <div>
@@ -623,6 +623,7 @@ function App() {
                         value={formData.message}
                         onChange={handleInputChange}
                         rows={4}
+                        required
                         className="bg-input border-primary/20 focus:border-primary text-lg rounded-xl"
                       />
                     </div>
