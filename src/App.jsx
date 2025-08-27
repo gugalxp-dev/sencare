@@ -558,7 +558,7 @@ function App() {
                 <CardContent>
                   <form 
                     onSubmit={handleSubmit} 
-                    action="https://formsubmit.co/sencare.homecare@gmail.com" 
+                    action="https://formsubmit.co/gustavodev24@gmail.com" 
                     method="POST"
                     className="space-y-6"
                   >
