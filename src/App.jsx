@@ -145,27 +145,27 @@ function App() {
     })
 
     // NOVO EFEITO: Pinning e Stagger nos Serviços
-    ScrollTrigger.create({
-      trigger: servicesRef.current,
-      start: 'top top',
-      end: '+=500',
-      pin: true,
-      onEnter: () => {
-        gsap.utils.toArray('.service-card').forEach((card, i) => {
-          gsap.fromTo(card, 
-            { x: -100, opacity: 0, rotation: -10 },
-            {
-              x: 0,
-              opacity: 1,
-              rotation: 0,
-              duration: 2,
-              ease: 'back.out(1.7)',
-              delay: i * 0.1
-            }
-          )
-        })
-      }
-    })
+    // ScrollTrigger.create({
+    //   trigger: servicesRef.current,
+    //   start: 'top top',
+    //   end: '+=500',
+    //   pin: true,
+    //   onEnter: () => {
+    //     gsap.utils.toArray('.service-card').forEach((card, i) => {
+    //       gsap.fromTo(card, 
+    //         { x: -100, opacity: 0, rotation: -10 },
+    //         {
+    //           x: 0,
+    //           opacity: 1,
+    //           rotation: 0,
+    //           duration: 2,
+    //           ease: 'back.out(1.7)',
+    //           delay: i * 0.1
+    //         }
+    //       )
+    //     })
+    //   }
+    // })
 
     // NOVO EFEITO: Stagger Reveals no About
     gsap.utils.toArray('.stagger-item').forEach((element, i) => {
@@ -186,21 +186,21 @@ function App() {
       )
     })
 
-    // NOVO EFEITO: Morphing Ícones no Footer
-    gsap.utils.toArray('.footer-icon').forEach((element) => {
-      gsap.to(element, {
-        rotation: 360,
-        scale: 1.2,
-        duration: 2,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: 'footer',
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true
-        }
-      })
-    })
+    // // NOVO EFEITO: Morphing Ícones no Footer
+    // gsap.utils.toArray('.footer-icon').forEach((element) => {
+    //   gsap.to(element, {
+    //     rotation: 360,
+    //     scale: 1.2,
+    //     duration: 2,
+    //     ease: 'none',
+    //     scrollTrigger: {
+    //       trigger: 'footer',
+    //       start: 'top bottom',
+    //       end: 'bottom top',
+    //       scrub: true
+    //     }
+    //   })
+    // })
 
     // NOVO EFEITO: Linha de Progresso no Contact
     gsap.to('.progress-line', {
