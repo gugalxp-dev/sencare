@@ -27,6 +27,8 @@ function App() {
     service: '',
     message: ''
   })
+  const [showAlert, setShowAlert] = useState(false)
+  const [alertMessage, setAlertMessage] = useState('')
   
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const heroRef = useRef(null)
@@ -267,7 +269,9 @@ function App() {
       })
       
       if (response.ok) {
-        alert('Mensagem enviada com sucesso! Entraremos em contato em breve.')
+        setAlertMessage('Mensagem enviada com sucesso! Entraremos em contato em breve.')
+        setShowAlert(true)
+        setTimeout(() => setShowAlert(false), 6000)
         setFormData({
           name: '',
           phone: '',
@@ -279,14 +283,9 @@ function App() {
         throw new Error('Erro ao enviar mensagem')
       }
     } catch (error) {
-      alert('Mensagem enviada com sucesso! Entraremos em contato em breve.')
-      setFormData({
-        name: '',
-        phone: '',
-        email: '',
-        service: '',
-        message: ''
-      })
+      setAlertMessage('Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente.')
+      setShowAlert(true)
+      setTimeout(() => setShowAlert(false), 4000)
     }
   }
 
@@ -352,6 +351,16 @@ function App() {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      {/* Alert Component */}
+      {showAlert && (
+        <div className="fixed bottom-4 right-4 z-999 max-w-md">
+          <div className="bg-green-600/90 text-white p-4 rounded-xl shadow-2xl flex items-center space-x-3 animate-fade-in">
+            <CheckCircle className="w-6 h-6" />
+            <p className="text-sm font-medium">{alertMessage}</p>
+          </div>
+        </div>
+      )}
+
       {/* Header */}
       <header className="fixed top-0 w-full bg-black/90 backdrop-blur-md shadow-2xl z-50 border-b border-primary/20">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
