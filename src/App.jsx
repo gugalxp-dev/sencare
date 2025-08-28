@@ -612,7 +612,7 @@ function App() {
                         <option value="Cuidado Infantil">Cuidado Infantil</option>
                         <option value="Acompanhante Hospitalar">Acompanhante Hospitalar</option>
                         <option value="Curativos e Procedimentos">Curativos e Procedimentos</option>
-                        <option value="Reabilitação">Reabilitação</option>
+                        {/* <option value="Reabilitação">Reabilitação</option> */}
                         <option value="Outros Serviços">Outros</option>
                       </select>
                     </div>
@@ -724,7 +724,7 @@ function App() {
                 <li>• Cuidado Infantil</li>
                 <li>• Acompanhante Hospitalar</li>
                 <li>• Curativos e Procedimentos</li>
-                <li>• Reabilitação</li>
+                {/* <li>• Reabilitação</li> */}
               </ul>
             </div>
             
