@@ -226,7 +226,7 @@ function App() {
   const testimonials = [
     {
       name: "Maria Silva",
-      text: "Excelente atendimento! Os profissionais da Safe Care cuidaram da minha mãe com muito carinho e dedicação.",
+      text: "Excelente atendimento! Os profissionais da SENCARE cuidaram da minha mãe com muito carinho e dedicação.",
       rating: 5,
       role: "Filha de paciente"
     },
@@ -257,9 +257,9 @@ function App() {
       <header className="fixed top-0 w-full bg-black/90 backdrop-blur-md shadow-2xl z-50 border-b border-primary/20">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <img src={logo} alt="Safe Care Home Care" className="h-12 w-auto" />
+            <img src={logo} alt="SENCARE Home Care" className="h-12 w-auto" />
             <div>
-              <h1 className="text-xl font-bold gradient-text">Safe Care</h1>
+              <h1 className="text-xl font-bold gradient-text">SENCARE</h1>
               <p className="text-xs text-muted-foreground">Home Care</p>
             </div>
           </div>
@@ -563,7 +563,7 @@ function App() {
                     className="space-y-6"
                   >
                     {/* Configurações do Formsubmit */}
-                    <input type="hidden" name="_subject" value="Nova solicitação de orçamento - Safe Care Home Care" />
+                    <input type="hidden" name="_subject" value="Nova solicitação de orçamento - SENCARE" />
                     <input type="hidden" name="_captcha" value="false" />
                     <input type="hidden" name="_template" value="table" />
                     
@@ -704,9 +704,9 @@ function App() {
           <div className="grid md:grid-cols-3 gap-12">
             <div className="gsap-fade-up">
               <div className="flex items-center space-x-3 mb-6">
-                <img src={logo} alt="Safe Care Home Care" className="h-16 w-auto" />
+                <img src={logo} alt="SENCARE Home Care" className="h-16 w-auto" />
                 <div>
-                  <h1 className="text-2xl font-bold gradient-text">Safe Care</h1>
+                  <h1 className="text-2xl font-bold gradient-text">SENCARE</h1>
                   <p className="text-sm text-muted-foreground">Home Care</p>
                 </div>
               </div>
@@ -749,7 +749,7 @@ function App() {
           
           <div className="border-t border-primary/20 mt-12 pt-8 text-center">
             <p className="text-muted-foreground">
-              © 2024 Safe Care Home Care. Todos os direitos reservados.
+              © 2025 SENCARE. Todos os direitos reservados.
             </p>
           </div>
         </div>
