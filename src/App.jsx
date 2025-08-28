@@ -106,6 +106,112 @@ function App() {
       )
     })
 
+    // NOVO EFEITO: Parallax no Hero
+    gsap.utils.toArray('.parallax-bg').forEach((element, i) => {
+      gsap.to(element, {
+        yPercent: -50 * (i + 1),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true
+        }
+      })
+    })
+
+    // NOVO EFEITO: Scrub nos Stats
+    gsap.utils.toArray('.scrub-stat .stat-number').forEach((element) => {
+      const finalValue = parseFloat(element.getAttribute('data-final'))
+      gsap.fromTo(element,
+        { textContent: 0 },
+        {
+          textContent: finalValue,
+          duration: 2,
+          ease: 'power1.out',
+          snap: { textContent: 1 },
+          scrollTrigger: {
+            trigger: '.hero-stats',
+            start: 'top 60%',
+            scrub: 1,
+            onUpdate: (self) => {
+              element.textContent = Math.ceil(self.progress * finalValue)
+            }
+          }
+        }
+      )
+    })
+
+    // NOVO EFEITO: Pinning e Stagger nos Serviços
+    ScrollTrigger.create({
+      trigger: servicesRef.current,
+      start: 'top top',
+      end: '+=500',
+      pin: true,
+      onEnter: () => {
+        gsap.utils.toArray('.service-card').forEach((card, i) => {
+          gsap.fromTo(card, 
+            { x: -100, opacity: 0, rotation: -10 },
+            {
+              x: 0,
+              opacity: 1,
+              rotation: 0,
+              duration: 2,
+              ease: 'back.out(1.7)',
+              delay: i * 0.1
+            }
+          )
+        })
+      }
+    })
+
+    // NOVO EFEITO: Stagger Reveals no About
+    gsap.utils.toArray('.stagger-item').forEach((element, i) => {
+      gsap.fromTo(element,
+        { y: 50, opacity: 0, rotationX: 30 },
+        {
+          y: 0,
+          opacity: 1,
+          rotationX: 0,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: element,
+            start: 'top 85%',
+          },
+          stagger: 0.2 * i
+        }
+      )
+    })
+
+    // NOVO EFEITO: Morphing Ícones no Footer
+    gsap.utils.toArray('.footer-icon').forEach((element) => {
+      gsap.to(element, {
+        rotation: 360,
+        scale: 1.2,
+        duration: 2,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: 'footer',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true
+        }
+      })
+    })
+
+    // NOVO EFEITO: Linha de Progresso no Contact
+    gsap.to('.progress-line', {
+      width: '100%',
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: contactRef.current,
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+      }
+    })
+
     // Animação de partículas flutuantes
     const createParticles = () => {
       const particles = document.querySelector('.particles')
@@ -215,12 +321,6 @@ function App() {
       description: "Cuidados médicos especializados realizados por profissionais habilitados",
       features: ["Procedimentos seguros", "Equipamentos modernos", "Técnicas avançadas"]
     },
-    // {
-    //   icon: <Users className="w-8 h-8" color='#000' />,
-    //   title: "Reabilitação",
-    //   description: "Fisioterapia e terapia ocupacional para recuperação completa",
-    //   features: ["Fisioterapia", "Terapia ocupacional", "Reabilitação completa"]
-    // }
   ]
 
   const testimonials = [
@@ -245,10 +345,9 @@ function App() {
   ]
 
   const stats = [
-    { number: "500+", label: "Famílias Atendidas" },
-    // { number: "24 horas por dia, 7 dias por semana/7", label: "Atendimento" },
-    { number: "15+", label: "Anos de Experiência" },
-    { number: "98%", label: "Satisfação" }
+    { number: 500, label: "Famílias Atendidas" },
+    { number: 15, label: "Anos de Experiência" },
+    { number: 98, label: "Satisfação" }
   ]
 
   return (
@@ -323,9 +422,9 @@ function App() {
         
         {/* Animated background elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-primary/5 to-accent/5 rounded-full blur-3xl"></div>
+          <div className="parallax-bg absolute top-20 left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="parallax-bg absolute bottom-20 right-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="parallax-bg absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-primary/5 to-accent/5 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10 text-center py-6">
@@ -376,10 +475,10 @@ function App() {
             </div>
 
             {/* Stats Section */}
-            <div className="hero-stats grid grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="hero-stats scrub-stat grid grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center p-6 bg-card/20 backdrop-blur-sm rounded-2xl border border-primary/20 modern-card">
-                  <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">{stat.number}</div>
+                  <div className="stat-number text-4xl md:text-5xl font-bold gradient-text mb-2" data-final={stat.number}>0</div>
                   <div className="text-sm md:text-base text-muted-foreground">{stat.label}</div>
                 </div>
               ))}
@@ -408,7 +507,7 @@ function App() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="gsap-scale bg-card/30 backdrop-blur-sm border-primary/20 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 group modern-card">
+              <Card key={index} className="service-card gsap-scale bg-card/30 backdrop-blur-sm border-primary/20 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 group modern-card">
                 <CardHeader className="text-center pb-4">
                   <div className="flex justify-center mb-6 relative">
                     <div className="p-6 gradient-gold rounded-full group-hover:scale-110 transition-all duration-300">
@@ -455,7 +554,7 @@ function App() {
               </h2>
               
               <div className="space-y-8">
-                <div className="flex items-start space-x-6 group gsap-fade-up">
+                <div className="flex items-start space-x-6 group stagger-item gsap-fade-up">
                   <div className="p-4 gradient-gold rounded-full group-hover:scale-110 transition-all duration-300 flex-shrink-0">
                     <Shield className="w-6 h-6 text-black" />
                   </div>
@@ -469,7 +568,7 @@ function App() {
                   </div>
                 </div>
                 
-                <div className="flex items-start space-x-6 group gsap-fade-up">
+                <div className="flex items-start space-x-6 group stagger-item gsap-fade-up">
                   <div className="p-4 gradient-gold rounded-full group-hover:scale-110 transition-all duration-300 flex-shrink-0">
                     <Clock className="w-6 h-6 text-black" />
                   </div>
@@ -483,7 +582,7 @@ function App() {
                   </div>
                 </div>
                 
-                <div className="flex items-start space-x-6 group gsap-fade-up">
+                <div className="flex items-start space-x-6 group stagger-item gsap-fade-up">
                   <div className="p-4 gradient-gold rounded-full group-hover:scale-110 transition-all duration-300 flex-shrink-0">
                     <Heart className="w-6 h-6 text-black" />
                   </div>
@@ -506,7 +605,7 @@ function App() {
                   <h3 className="text-3xl font-bold mb-6 gradient-text">Depoimentos</h3>
                   <div className="space-y-6">
                     {testimonials.map((testimonial, index) => (
-                      <div key={index} className="p-6 bg-background/50 rounded-2xl border border-primary/10">
+                      <div key={index} className="stagger-item p-6 bg-background/50 rounded-2xl border border-primary/10">
                         <div className="flex items-center mb-4">
                           {[...Array(testimonial.rating)].map((_, i) => (
                             <Star key={i} className="w-4 h-4 text-primary fill-current" />
@@ -529,6 +628,7 @@ function App() {
 
       {/* Contact Section */}
       <section id="contato" ref={contactRef} className="py-24 bg-gradient-to-b from-black to-secondary/20">
+        <div className="progress-line absolute top-0 left-0 w-0 h-1 bg-primary"></div>
         <div className="container mx-auto px-4">
           <div className="text-center mb-20 gsap-fade-up">
             <div className="inline-flex items-center px-6 py-3 gradient-gold rounded-full border border-primary/30 backdrop-blur-sm mb-8 text-black font-semibold">
@@ -612,7 +712,6 @@ function App() {
                         <option value="Cuidado Infantil">Cuidado Infantil</option>
                         <option value="Acompanhante Hospitalar">Acompanhante Hospitalar</option>
                         <option value="Curativos e Procedimentos">Curativos e Procedimentos</option>
-                        {/* <option value="Reabilitação">Reabilitação</option> */}
                         <option value="Outros Serviços">Outros</option>
                       </select>
                     </div>
@@ -724,7 +823,6 @@ function App() {
                 <li>• Cuidado Infantil</li>
                 <li>• Acompanhante Hospitalar</li>
                 <li>• Curativos e Procedimentos</li>
-                {/* <li>• Reabilitação</li> */}
               </ul>
             </div>
             
@@ -732,15 +830,15 @@ function App() {
               <h3 className="text-xl font-bold mb-6 gradient-text">Contato</h3>
               <div className="space-y-4 text-muted-foreground">
                 <p className="flex items-center">
-                  <Phone className="w-5 h-5 mr-3 text-primary" />
+                  <Phone className="w-5 h-5 mr-3 text-primary footer-icon" />
                   (13) 98883-3950
                 </p>
                 <p className="flex items-center">
-                  <Mail className="w-5 h-5 mr-3 text-primary" />
+                  <Mail className="w-5 h-5 mr-3 text-primary footer-icon" />
                   sencare.homecare@gmail.com
                 </p>
                 <p className="flex items-center">
-                  <MapPin className="w-5 h-5 mr-3 text-primary" />
+                  <MapPin className="w-5 h-5 mr-3 text-primary footer-icon" />
                   Baixada Santista e região
                 </p>
               </div>
