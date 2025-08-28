@@ -458,8 +458,7 @@ function App() {
             </h2>
             
             <p className="hero-description text-xl md:text-2xl mb-12 opacity-90 max-w-4xl mx-auto leading-relaxed text-muted-foreground">
-              Oferecemos serviços de <span className="text-primary font-semibold">acompanhamento domiciliar</span>, 
-              <span className="text-primary font-semibold"> acompanhamento hospitalar</span> e 
+              Oferecemos <span className="text-primary font-semibold"> acompanhamento hospitalar</span> e 
               <span className="text-primary font-semibold"> cuidados especializados</span> com carinho e dedicação
             </p>
             
