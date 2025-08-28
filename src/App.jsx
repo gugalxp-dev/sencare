@@ -214,7 +214,13 @@ function App() {
       title: "Curativos e Procedimentos",
       description: "Cuidados médicos especializados realizados por profissionais habilitados",
       features: ["Procedimentos seguros", "Equipamentos modernos", "Técnicas avançadas"]
-    }
+    },
+    // {
+    //   icon: <Users className="w-8 h-8" color='#000' />,
+    //   title: "Reabilitação",
+    //   description: "Fisioterapia e terapia ocupacional para recuperação completa",
+    //   features: ["Fisioterapia", "Terapia ocupacional", "Reabilitação completa"]
+    // }
   ]
 
   const testimonials = [
