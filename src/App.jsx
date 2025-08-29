@@ -317,7 +317,7 @@ function App() {
     {
       icon: <Heart className="w-8 h-8" color='#000' />,
       title: "Curativos e Procedimentos",
-      description: "Cuidados médicos especializados realizados por profissionais habilitados",
+      description: "Cuidados especializados realizados por cuidadores profissionais habilitados",
       features: ["Procedimentos seguros", "Equipamentos modernos", "Técnicas avançadas"]
     },
   ]
