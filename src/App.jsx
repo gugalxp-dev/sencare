@@ -15,7 +15,7 @@ gsap.registerPlugin(ScrollTrigger)
 // Componente da logo do WhatsApp
 const WhatsAppIcon = ({ className = "w-4 h-4" }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488" />
   </svg>
 )
 
@@ -29,7 +29,7 @@ function App() {
   })
   const [showAlert, setShowAlert] = useState(false)
   const [alertMessage, setAlertMessage] = useState('')
-  
+
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const heroRef = useRef(null)
   const servicesRef = useRef(null)
@@ -39,7 +39,7 @@ function App() {
   useEffect(() => {
     // Animações de entrada
     const tl = gsap.timeline()
-    
+
     // Animação do hero
     tl.from('.hero-title', {
       duration: 1.2,
@@ -47,34 +47,34 @@ function App() {
       opacity: 0,
       ease: 'power3.out'
     })
-    .from('.hero-subtitle', {
-      duration: 1,
-      y: 50,
-      opacity: 0,
-      ease: 'power3.out'
-    }, '-=0.8')
-    .from('.hero-description', {
-      duration: 1,
-      y: 30,
-      opacity: 0,
-      ease: 'power3.out'
-    }, '-=0.6')
-    .from('.hero-buttons', {
-      duration: 0.8,
-      y: 30,
-      opacity: 0,
-      ease: 'power3.out'
-    }, '-=0.4')
-    .from('.hero-stats', {
-      duration: 0.8,
-      y: 30,
-      opacity: 0,
-      ease: 'power3.out'
-    }, '-=0.2')
+      .from('.hero-subtitle', {
+        duration: 1,
+        y: 50,
+        opacity: 0,
+        ease: 'power3.out'
+      }, '-=0.8')
+      .from('.hero-description', {
+        duration: 1,
+        y: 30,
+        opacity: 0,
+        ease: 'power3.out'
+      }, '-=0.6')
+      .from('.hero-buttons', {
+        duration: 0.8,
+        y: 30,
+        opacity: 0,
+        ease: 'power3.out'
+      }, '-=0.4')
+      .from('.hero-stats', {
+        duration: 0.8,
+        y: 30,
+        opacity: 0,
+        ease: 'power3.out'
+      }, '-=0.2')
 
     // Animações com scroll
     gsap.utils.toArray('.gsap-fade-up').forEach((element) => {
-      gsap.fromTo(element, 
+      gsap.fromTo(element,
         { y: 100, opacity: 0 },
         {
           y: 0,
@@ -255,10 +255,10 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
+
     const form = e.target
     const formData = new FormData(form)
-    
+
     try {
       const response = await fetch(form.action, {
         method: 'POST',
@@ -267,7 +267,7 @@ function App() {
           'Accept': 'application/json'
         }
       })
-      
+
       if (response.ok) {
         setAlertMessage('Mensagem enviada com sucesso! Entraremos em contato em breve.')
         setShowAlert(true)
@@ -291,7 +291,7 @@ function App() {
 
   const services = [
     {
-      icon: <Heart className="w-8 h-8" color='#000'/>,
+      icon: <Heart className="w-8 h-8" color='#000' />,
       title: "Acompanhamento Domiciliar",
       description: "Cuidados domiciliares personalizados com profissionais qualificados",
       features: ["Atendimento 24h", "Profissionais certificados", "Planos personalizados"]
@@ -371,7 +371,7 @@ function App() {
               <p className="text-xs text-muted-foreground">Home Care</p>
             </div>
           </div>
-          
+
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             <a href="#inicio" className="text-foreground hover:text-primary transition-all duration-300 font-medium">Início</a>
@@ -379,9 +379,9 @@ function App() {
             <a href="#sobre" className="text-foreground hover:text-primary transition-all duration-300 font-medium">Sobre</a>
             <a href="#contato" className="text-foreground hover:text-primary transition-all duration-300 font-medium">Contato</a>
           </nav>
-          
+
           {/* WhatsApp Button */}
-          <Button 
+          <Button
             onClick={() => window.open('https://wa.me/5513988833950', '_blank')}
             className="hidden md:flex bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 modern-button"
           >
@@ -408,7 +408,7 @@ function App() {
               <a href="#servicos" className="text-foreground hover:text-primary transition-all duration-300 font-medium" onClick={() => setIsMenuOpen(false)}>Serviços</a>
               <a href="#sobre" className="text-foreground hover:text-primary transition-all duration-300 font-medium" onClick={() => setIsMenuOpen(false)}>Sobre</a>
               <a href="#contato" className="text-foreground hover:text-primary transition-all duration-300 font-medium" onClick={() => setIsMenuOpen(false)}>Contato</a>
-              <Button 
+              <Button
                 onClick={() => {
                   window.open('https://wa.me/5513988833950', '_blank')
                   setIsMenuOpen(false)
@@ -428,7 +428,7 @@ function App() {
         {/* Background Effects */}
         <div className="absolute inset-0 gradient-dark"></div>
         <div className="particles absolute inset-0"></div>
-        
+
         {/* Animated background elements */}
         <div className="absolute inset-0">
           <div className="parallax-bg absolute top-20 left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
@@ -444,7 +444,7 @@ function App() {
                 <span>Cuidado Premium</span>
               </div>
             </div>
-            
+
             <h1 className="hero-title text-6xl md:text-8xl font-bold mb-8 leading-tight">
               <span className="gradient-text">Cuidado</span>
               <br />
@@ -452,28 +452,28 @@ function App() {
               <br />
               <span className="gradient-text">Humanizado</span>
             </h1>
-            
+
             <h2 className="hero-subtitle text-3xl md:text-5xl font-semibold mb-8 text-primary">
               para Toda Família
             </h2>
-            
+
             <p className="hero-description text-xl md:text-2xl mb-12 opacity-90 max-w-4xl mx-auto leading-relaxed text-muted-foreground">
-              Oferecemos <span className="text-primary font-semibold"> acompanhamento hospitalar</span> e 
+              Oferecemos <span className="text-primary font-semibold"> acompanhamento hospitalar</span> e
               <span className="text-primary font-semibold"> cuidados especializados</span> com carinho e dedicação
             </p>
-            
+
             <div className="hero-buttons flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="gradient-gold text-black font-bold text-lg px-12 py-6 rounded-full shadow-2xl hover:shadow-primary/25 transition-all duration-300 transform hover:scale-105 modern-button"
                 onClick={() => document.getElementById('contato').scrollIntoView({ behavior: 'smooth' })}
               >
                 Solicite um Orçamento
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-              
-              <Button 
-                variant="outline" 
+
+              <Button
+                variant="outline"
                 size="lg"
                 className="border-2 border-primary text-primary hover:bg-primary hover:text-black font-bold text-lg px-12 py-6 rounded-full transition-all duration-300 transform hover:scale-105 modern-button"
                 onClick={() => document.getElementById('servicos').scrollIntoView({ behavior: 'smooth' })}
@@ -512,7 +512,7 @@ function App() {
               Oferecemos uma ampla gama de serviços de cuidados profissionais para atender às necessidades de toda a família
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <Card key={index} className="service-card gsap-scale bg-card/30 backdrop-blur-sm border-primary/20 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 group modern-card">
@@ -554,13 +554,13 @@ function App() {
                 <Shield className="w-5 h-5 mr-2" />
                 <span>Por que nos escolher</span>
               </div>
-              
+
               <h2 className="text-5xl md:text-6xl font-bold mb-8">
                 <span className="gradient-text">Excelência</span>
                 <br />
                 <span className="text-white">em Cuidados</span>
               </h2>
-              
+
               <div className="space-y-8">
                 <div className="flex items-start space-x-6 group stagger-item gsap-fade-up">
                   <div className="p-4 gradient-gold rounded-full group-hover:scale-110 transition-all duration-300 flex-shrink-0">
@@ -575,7 +575,7 @@ function App() {
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-6 group stagger-item gsap-fade-up">
                   <div className="p-4 gradient-gold rounded-full group-hover:scale-110 transition-all duration-300 flex-shrink-0">
                     <Clock className="w-6 h-6 text-black" />
@@ -589,7 +589,7 @@ function App() {
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-6 group stagger-item gsap-fade-up">
                   <div className="p-4 gradient-gold rounded-full group-hover:scale-110 transition-all duration-300 flex-shrink-0">
                     <Heart className="w-6 h-6 text-black" />
@@ -605,7 +605,7 @@ function App() {
                 </div>
               </div>
             </div>
-            
+
             <div className="gsap-scale">
               <div className="relative">
                 <div className="absolute inset-0 gradient-gold rounded-3xl blur-xl opacity-20"></div>
@@ -664,9 +664,9 @@ function App() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form 
-                    onSubmit={handleSubmit} 
-                    action="https://formsubmit.co/sencare.homecare@gmail.com" 
+                  <form
+                    onSubmit={handleSubmit}
+                    action="https://formsubmit.co/sencare.homecare@gmail.com"
                     method="POST"
                     className="space-y-6"
                   >
@@ -674,7 +674,7 @@ function App() {
                     <input type="hidden" name="_subject" value="Nova solicitação de orçamento - SENCARE" />
                     <input type="hidden" name="_captcha" value="false" />
                     <input type="hidden" name="_template" value="table" />
-                    
+
                     <div>
                       <Input
                         name="name"
@@ -707,7 +707,7 @@ function App() {
                       />
                     </div>
                     <div>
-                      <select 
+                      <select
                         name="service"
                         value={formData.service}
                         onChange={(e) => handleSelectChange(e.target.value)}
@@ -734,9 +734,9 @@ function App() {
                         className="bg-input border-primary/20 focus:border-primary text-lg rounded-xl"
                       />
                     </div>
-                    <Button 
-                      type="submit" 
-                      className="w-full gradient-gold text-black font-bold text-lg py-6 rounded-xl shadow-2xl hover:shadow-primary/25 transition-all duration-300 transform hover:scale-105 modern-button" 
+                    <Button
+                      type="submit"
+                      className="w-full gradient-gold text-black font-bold text-lg py-6 rounded-xl shadow-2xl hover:shadow-primary/25 transition-all duration-300 transform hover:scale-105 modern-button"
                       size="lg"
                     >
                       Enviar Solicitação
@@ -751,7 +751,7 @@ function App() {
             <div className="gsap-fade-up space-y-8">
               <div className="bg-card/30 backdrop-blur-sm border border-primary/20 rounded-3xl p-8 modern-card">
                 <h3 className="text-2xl font-bold mb-6 gradient-text">Informações de Contato</h3>
-                
+
                 <div className="space-y-6">
                   <div className="flex items-center space-x-4">
                     <div className="p-3 gradient-gold rounded-full">
@@ -762,7 +762,7 @@ function App() {
                       <p className="text-muted-foreground">(13) 98883-3950</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center space-x-4">
                     <div className="p-3 gradient-gold rounded-full">
                       <Mail className="w-6 h-6 text-black" />
@@ -772,7 +772,7 @@ function App() {
                       <p className="text-muted-foreground">sencare.homecare@gmail.com</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center space-x-4">
                     <div className="p-3 gradient-gold rounded-full">
                       <MapPin className="w-6 h-6 text-black" />
@@ -792,7 +792,7 @@ function App() {
                 <p className="text-muted-foreground mb-6">
                   Entre em contato direto conosco pelo WhatsApp para um atendimento mais rápido
                 </p>
-                <Button 
+                <Button
                   onClick={() => window.open('https://wa.me/5513988833950', '_blank')}
                   className="bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 modern-button"
                 >
@@ -818,11 +818,11 @@ function App() {
                 </div>
               </div>
               <p className="text-muted-foreground leading-relaxed text-lg mb-6">
-                Cuidado profissional e humanizado para toda família. 
+                Cuidado profissional e humanizado para toda família.
                 Sua saúde e bem-estar são nossa prioridade.
               </p>
             </div>
-            
+
             <div className="gsap-fade-up">
               <h3 className="text-xl font-bold mb-6 gradient-text">Serviços</h3>
               <ul className="space-y-3 text-muted-foreground">
@@ -833,7 +833,7 @@ function App() {
                 <li>• Curativos e Procedimentos</li>
               </ul>
             </div>
-            
+
             <div className="gsap-fade-up">
               <h3 className="text-xl font-bold mb-6 gradient-text">Contato</h3>
               <div className="space-y-4 text-muted-foreground">
@@ -852,10 +852,21 @@ function App() {
               </div>
             </div>
           </div>
-          
-          <div className="border-t border-primary/20 mt-12 pt-8 text-center">
+
+          <div className="border-t border-primary/20 mt-12 pt-8 text-center space-y-2">
             <p className="text-muted-foreground">
               © 2025 SENCARE. Todos os direitos reservados.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Feito por{" "}
+              <a
+                href="https://wa.me/13996369053"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline"
+              >
+                Gustavo Arruda
+              </a>
             </p>
           </div>
         </div>
